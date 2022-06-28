@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+
+  <main id="main">
+    
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>BUSQUEDA</li>
+        </ol>
+        <h2>DE ALUMNOS GIMNASIO</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+    <form action="" method="post">{% csrf_token %}
+        <input type="search" name="search" placeholder="Buscar por nombre y apellido" aria-label="Search">
+        <button type="submit">Buscar</button>
+        {%for busqueda in busquedas %}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{busqueda.nombre}}</td>
+            <td>{{busqueda.apellido}}</td>
+            <td>{{busqueda.documento}}</td>
+            <td>{{busqueda.telefono}}</td>
+    
+        </tr>
+        {% endfor %}
+        
+    </form>
+    
+
+  </main><!-- End #main -->
+
+ 
+
+  
+
+{% endblock %}

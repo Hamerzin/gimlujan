@@ -1,0 +1,61 @@
+{% extends "index.html" %}
+
+{% load static  %}
+
+{% block contenidoQueCambia %}
+<html lang="en">
+
+<head>
+
+<link href="{% static 'assets/css/form.css' %}" rel="stylesheet">
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+</head>
+   
+    {% if miformulario.errors %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+        
+
+    {% endif %}
+    <form action="" method="POST">{% csrf_token %}
+
+           
+        <table>
+            {{ miformulario.as_table }}
+         
+
+           
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+            <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<section class="get-in-touch">
+   <h1 class="title">REGISTRO DE USUARIOS GIMNASIO</h1>
+   <form class="contact-form">
+      <div class="form-field col-lg-6">
+         <input id="nombres" class="input-text js-input" type="text" name="nombres">
+         <label class="label" for="name">Nombre</label>
+      </div>
+      <div class="form-field col-lg-6 ">
+         <input id="apellidos" class="input-text js-input" type="text" name="apellidos">
+         <label class="label" for="email">Apellido</label>
+      </div>
+      <div class="form-field col-lg-6 ">
+         <input id="documentos" class="input-text js-input" type="number" name="documentos">
+         <label class="label" for="company">Documento</label>
+      </div>
+       <div class="form-field col-lg-6 ">
+         <input id="telefonos" class="input-text js-input" type="text" name="telefonos">
+         <label class="label" for="phone">Telefono</label>
+      </div>
+
+      <div class="form-field col-lg-12">
+         <input class="submit-btn" type="submit" value="Enviar">
+      </div>
+   
+</section>
+    
+</table>  
+</form>    
+</html>
+{% endblock %}

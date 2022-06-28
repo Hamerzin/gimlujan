@@ -1,0 +1,52 @@
+{% extends "index.html" %}
+
+{% load static  %}
+
+{% block contenidoQueCambia %}
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link href="{% static 'css/main.css'%}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="s130">
+      <form action="" method="post">{% csrf_token %}
+        <div class="inner-form">
+          <div class="input-field first-wrap">
+            <div class="svg-wrapper">
+            
+            </div>
+            <input type="text" name="search" placeholder="Ingrese su busqueda" aria-label="Search">
+          </div>
+          <div class="input-field second-wrap">
+            <button class="btn-search" type="submit">BUSCAR</button>
+          </div>
+        </div>
+        <span class="info">ej. nombre, apellido, dni</span>
+        <br>
+        {%for busqueda in busquedas %}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{busqueda.nombre}}</td>
+            <br>
+            <td>{{busqueda.apellido}}</td>
+            <td>{{busqueda.documento}}</td>
+            <td>{{busqueda.telefono}}</td>
+    
+        </tr>
+        {% endfor %}
+      </form>
+    </div>
+  
+
+    </tr>
+    
+  </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+
+{% endblock %}

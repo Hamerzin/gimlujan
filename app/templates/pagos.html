@@ -1,0 +1,61 @@
+{% extends "index.html" %}
+
+{% load static  %}
+
+{% block contenidoQueCambia %}
+<html lang="en">
+
+<head>
+
+<link href="{% static 'assets/css/form.css' %}" rel="stylesheet">
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+</head>
+   
+    {% if mispagos.errors %}
+
+    <p style="color: red;"> Están mal los datos, revisar</p>
+        
+
+    {% endif %}
+    <form action="" method="POST">{% csrf_token %}
+
+           
+        <table>
+            {{ mispagos.as_table }}
+         
+
+           
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+            <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<section class="get-in-touch">
+   <h1 class="title">REGISTRO DE PAGOS DE  USUARIOS GIMNASIO</h1>
+   <form class="contact-form">
+      <div class="form-field col-lg-6">
+         <input id="fechapagos" class="input-text js-input" type="date" name="fechapagos">
+         <label class="label" for="fechapagos">Fecha de Pago</label>
+      </div>
+      <div class="form-field col-lg-6 ">
+         <input id="clasesdisponibless" class="input-text js-input" type="number" name="clasesdisponibless">
+         <label class="label" for="clasesdisponibless">Clases disponibles</label>
+      </div>
+      <div class="form-field col-lg-6 ">
+         <input id="numeroderegistros" class="input-text js-input" type="number" name="numeroderegistros">
+         <label class="label" for="numeroderegistros">Nro de registro</label>
+      </div>
+       <div class="form-field col-lg-6 ">
+         <input id="montoabonados" class="input-text js-input" type="number" name="montoabonados">
+         <label class="label" for="montoabonados">Monto Cuota</label>
+      </div>
+
+      <div class="form-field col-lg-12">
+         <input class="submit-btn" type="submit" value="Enviar">
+      </div>
+   
+</section>
+    
+</table>  
+</form>    
+</html>
+{% endblock %}
